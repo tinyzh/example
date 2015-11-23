@@ -5,8 +5,27 @@
     <title>弹跳球</title>
     <style>
         body{padding: 0;margin:0;}
-        #ball{background: red;height:100px;width:100px;position: absolute;top: 10px;left:10px;border-radius: 50%;}
+        #ball{background: red;height:100px;width:100px;position: absolute;top: 10px;left:10px;border-radius: 50%;animation:bounce 2s infinite;}
         #floor{position: absolute;bottom:10px;left:0px;width:350px;height:1px;border-top:5px solid brown;}
+
+    /*关键帧*/
+        @-webkit-keyframes bounce {
+            0%{
+                top: 20px;
+                -webkit-animation-timing-function: cubic-bezier(1,0,.96,.91);
+            }
+            50%{
+                top: 300px;
+                -webkit-animation-timing-function: cubic-bezier(0,.27,.32,1);
+            }
+            100%{
+                top:20px;
+                -webkit-animation-timing-function: cubic-bezier(0,.27,.32,1);
+            }
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -42,7 +61,7 @@
                 }
             }
             ball.addEventListener(eventName,bounce);
-            bounce();
+            //bounce();
         }());
 
     </script>
